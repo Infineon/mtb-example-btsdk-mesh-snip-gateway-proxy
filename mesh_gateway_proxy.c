@@ -55,7 +55,6 @@ extern wiced_bt_cfg_settings_t wiced_bt_cfg_settings;
  ******************************************************/
 #define MESH_PID                0x3016
 #define MESH_VID                0x0002
-#define MESH_CACHE_REPLAY_SIZE  0x0008
 
 
 /******************************************************
@@ -113,7 +112,6 @@ wiced_bt_mesh_core_config_t  mesh_config =
     .company_id         = MESH_COMPANY_ID_CYPRESS,                  // Company identifier assigned by the Bluetooth SIG
     .product_id         = MESH_PID,                                 // Vendor-assigned product identifier
     .vendor_id          = MESH_VID,                                 // Vendor-assigned product version identifier
-    .replay_cache_size  = MESH_CACHE_REPLAY_SIZE,                   // minimum number of replay protection list entries in a device
     .features           = WICED_BT_MESH_CORE_FEATURE_BIT_FRIEND | WICED_BT_MESH_CORE_FEATURE_BIT_RELAY | WICED_BT_MESH_CORE_FEATURE_BIT_GATT_PROXY_SERVER,   // Supports Friend, Relay and GATT Proxy
     .friend_cfg         =                                           // Configuration of the Friend Feature(Receive Window in Ms, messages cache)
     {
@@ -127,7 +125,7 @@ wiced_bt_mesh_core_config_t  mesh_config =
         .receive_window_factor = 0,                                 // contribution of the supported Receive Window used in Friend Offer Delay calculations.
         .min_cache_size_log    = 0,                                 // minimum number of messages that the Friend node can store in its Friend Cache.
         .receive_delay         = 0,                                 // Receive delay in 1 ms units to be requested by the Low Power node.
-        .poll_timeout          = 0                                  // Poll timeout in 100ms unite to bt requested by the Low Power node.
+        .poll_timeout          = 0                                  // Poll timeout in 100ms unite to Bluetooth requested by the Low Power node.
     },
     .gatt_client_only          = WICED_FALSE,                       // Can connect to mesh over GATT or ADV
     .elements_num  = (uint8_t)(sizeof(mesh_elements) / sizeof(mesh_elements[0])),   // number of elements on this device
